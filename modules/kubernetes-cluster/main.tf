@@ -15,39 +15,19 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
 
   default_node_pool {
-    name                  = lookup(default_node_pool.value, "name", null)
-    os_type               = lookup(default_node_pool.value, "os_type", null)
-    vm_size               = lookup(default_node_pool.value, "vm_size", null)
-    availability_zones    = lookup(default_node_pool.value, "availability_zones", null)
-    enable_auto_scaling   = lookup(default_node_pool.value, "enable_auto_scaling", null)
-    enable_node_public_ip = lookup(default_node_pool.value, "enable_node_public_ip", null)
-    max_pods              = lookup(default_node_pool.value, "max_pods", null)
-    node_taints           = lookup(default_node_pool.value, "node_taints", null)
-    os_disk_size_gb       = lookup(default_node_pool.value, "os_disk_size_gb", null)
-    type                  = lookup(default_node_pool.value, "type", null)
-    vnet_subnet_id        = lookup(default_node_pool.value, "vnet_subnet_id", null)
-    min_count             = lookup(default_node_pool.value, "min_count", null)
-    max_count             = lookup(default_node_pool.value, "max_count", null)
-    node_count            = lookup(default_node_pool.value, "node_count", null)
-  }
-
-  dynamic "agent_pool_profile" {
-    for_each = var.agent_pool_profile
-    content {
-      name                = lookup(agent_pool_profile.value, "name", null)
-      count               = lookup(agent_pool_profile.value, "count", null)
-      vm_size             = lookup(agent_pool_profile.value, "vm_size", null)
-      availability_zones  = lookup(agent_pool_profile.value, "availability_zones", null)
-      enable_auto_scaling = lookup(agent_pool_profile.value, "enable_auto_scaling", null)
-      min_count           = lookup(agent_pool_profile.value, "min_count", null)
-      max_count           = lookup(agent_pool_profile.value, "max_count", null)
-      max_pods            = lookup(agent_pool_profile.value, "max_pods", null)
-      os_disk_size_gb     = lookup(agent_pool_profile.value, "os_disk_size_gb", null)
-      os_type             = lookup(agent_pool_profile.value, "os_type", null)
-      type                = lookup(agent_pool_profile.value, "type", null)
-      vnet_subnet_id      = lookup(agent_pool_profile.value, "vnet_subnet_id", null)
-      node_taints         = lookup(agent_pool_profile.value, "node_taints", null)
-    }
+    name                  = lookup(var.default_node_pool, "name", null)
+    vm_size               = lookup(var.default_node_pool, "vm_size", null)
+    availability_zones    = var.default_node_pool_availability_zones
+    enable_auto_scaling   = lookup(var.default_node_pool, "enable_auto_scaling", null)
+    enable_node_public_ip = lookup(var.default_node_pool, "enable_node_public_ip", null)
+    max_pods              = lookup(var.default_node_pool, "max_pods", null)
+    node_taints           = var.default_node_pool_node_taints
+    os_disk_size_gb       = lookup(var.default_node_pool, "os_disk_size_gb", null)
+    type                  = lookup(var.default_node_pool, "type", null)
+    vnet_subnet_id        = lookup(var.default_node_pool, "vnet_subnet_id", null)
+    min_count             = lookup(var.default_node_pool, "min_count", null)
+    max_count             = lookup(var.default_node_pool, "max_count", null)
+    node_count            = lookup(var.default_node_pool, "node_count", null)
   }
 
   service_principal {
@@ -71,9 +51,9 @@ resource "azurerm_kubernetes_cluster" "main" {
     service_cidr       = var.network_profile.service_cidr
   }
 
-  lifecycle {
-    ignore_changes = var.aks_ignore_changes
-  }
+  # lifecycle {
+  #   ignore_changes = var.aks_ignore_changes
+  # }
 
   tags = var.tags
 }
