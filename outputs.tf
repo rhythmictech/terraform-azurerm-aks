@@ -44,7 +44,7 @@ output "aks_resource_group" {
 }
 
 output "cluster_name" {
-  value = azurerm_resource_group.main.name
+  value = module.kubernetes.cluster_name
 }
 
 output "kube_config_raw" {
