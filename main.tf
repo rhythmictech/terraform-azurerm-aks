@@ -11,6 +11,7 @@ module "ssh-key" {
 module "kubernetes" {
   source                               = "./modules/kubernetes-cluster"
   prefix                               = var.prefix
+  api_server_authorized_ip_ranges      = var.api_server_authorized_ip_ranges
   resource_group_name                  = azurerm_resource_group.main.name
   location                             = azurerm_resource_group.main.location
   rbac_enabled                         = var.rbac_enabled
@@ -24,9 +25,8 @@ module "kubernetes" {
   default_node_pool                    = var.default_node_pool
   default_node_pool_availability_zones = var.default_node_pool_availability_zones
   default_node_pool_node_taints        = var.default_node_pool_node_taints
-  # aks_ignore_changes              = var.aks_ignore_changes
-  network_profile = var.network_profile
-  tags            = var.tags
+  network_profile                      = var.network_profile
+  tags                                 = var.tags
 }
 
 module "log_analytics_workspace" {
