@@ -1,9 +1,10 @@
 resource "azurerm_kubernetes_cluster" "main" {
-  name                = "${var.prefix}-aks"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  dns_prefix          = var.prefix
-  kubernetes_version  = var.kubernetes_version
+  name                            = "${var.prefix}-aks"
+  location                        = var.location
+  resource_group_name             = var.resource_group_name
+  dns_prefix                      = var.prefix
+  kubernetes_version              = var.kubernetes_version
+  api_server_authorized_ip_ranges = var.api_server_authorized_ip_ranges
 
   role_based_access_control {
     enabled = var.rbac_enabled

@@ -1,6 +1,10 @@
 # kubernetes-cluster
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -10,17 +14,18 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | admin\_public\_ssh\_key | The SSH key to be used for the username defined in the `admin_username` variable. | `any` | n/a | yes |
 | admin\_username | The username of the local administrator to be created on the Kubernetes cluster | `any` | n/a | yes |
 | agent\_pool\_profile | An agent\_pool\_profile block | `any` | n/a | yes |
+| api\_server\_authorized\_ip\_ranges | The IP ranges to whitelist for incoming traffic to the masters. | `list(string)` | `null` | no |
 | default\_node\_pool | An default\_node\_pool block | `any` | n/a | yes |
-| default\_node\_pool\_availability\_zones | The default\_node\_pools AZs | `list(string)` | n/a | yes |
-| default\_node\_pool\_node\_taints | The default\_node\_pools node taints | `list(string)` | n/a | yes |
+| default\_node\_pool\_availability\_zones | The default\_node\_pools AZs | `list(string)` | `null` | no |
+| default\_node\_pool\_node\_taints | The default\_node\_pools node taints | `list(string)` | `null` | no |
 | kubernetes\_version | Version of Kubernetes to install | `string` | `"1.11.3"` | no |
 | location | The Azure Region in which to create the Virtual Network | `any` | n/a | yes |
 | log\_analytics\_workspace\_id | The Log Analytics Workspace Id. | `any` | n/a | yes |
-| network\_profile | Variables defining the AKS network profile config | <pre>object({<br>    network_plugin     = string<br>    network_policy     = string<br>    dns_service_ip     = string<br>    docker_bridge_cidr = string<br>    pod_cidr           = string<br>    service_cidr       = string<br>    load_balancer_sku  = string<br>  })<br></pre> | n/a | yes |
+| network\_profile | Variables defining the AKS network profile config | <pre>object({<br>    network_plugin     = string<br>    network_policy     = string<br>    dns_service_ip     = string<br>    docker_bridge_cidr = string<br>    pod_cidr           = string<br>    service_cidr       = string<br>    load_balancer_sku  = string<br>  })</pre> | n/a | yes |
 | prefix | The prefix for the resources created in the specified Azure Resource Group. | `any` | n/a | yes |
 | rbac\_enabled | Boolean to enable or disable role-based access control | `bool` | `true` | no |
 | resource\_group\_name | The name of the Resource Group in which the Virtual Network | `any` | n/a | yes |

@@ -1,5 +1,11 @@
 # terraform-azurerm-aks/kubernetes-cluster variables
 
+variable "api_server_authorized_ip_ranges" {
+  default     = null
+  description = "The IP ranges to whitelist for incoming traffic to the masters."
+  type        = list(string)
+}
+
 variable "log_analytics_workspace_id" {
   description = "The Log Analytics Workspace Id."
 }
