@@ -1,5 +1,11 @@
 # terraform-azurerm-aks variables
 
+variable "api_server_authorized_ip_ranges" {
+  default     = null
+  description = "The IP ranges to whitelist for incoming traffic to the masters."
+  type        = list(string)
+}
+
 variable "prefix" {
   description = "The prefix for the resources created in the specified Azure Resource Group"
   type        = string

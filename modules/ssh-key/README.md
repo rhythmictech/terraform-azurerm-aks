@@ -1,6 +1,10 @@
 # ssh-key
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -11,7 +15,7 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | public\_ssh\_key | An ssh key set in the main variables of the terraform-azurerm-aks module | `string` | `""` | no |
 
 ## Outputs

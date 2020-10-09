@@ -1,6 +1,10 @@
 #  log-analytics-solution
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -10,7 +14,7 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | location | The Azure region in which to create the Virtual Network | `any` | n/a | yes |
 | resource\_group\_name | The name of the Resource Group in which the Log Analytics solution will be created | `any` | n/a | yes |
 | workspace\_name | The name of the workspace created for Log Analytics | `any` | n/a | yes |

@@ -1,6 +1,10 @@
 #  log-analytics-workspace
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -10,7 +14,7 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | location | The Azure Region in which to create the Virtual Network | `any` | n/a | yes |
 | log\_analytics\_workspace\_sku | The SKU (pricing level) of the Log Analytics workspace | `string` | `"PerGB2018"` | no |
 | log\_retention\_in\_days | The retention period for the logs in days | `number` | `30` | no |
