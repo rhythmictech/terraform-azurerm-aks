@@ -28,6 +28,7 @@ This Terraform module deploys a Kubernetes cluster on Azure using AKS (Azure Kub
 | default\_node\_pool | A default\_node\_pool block, see terraform.io/docs/providers/azurerm/r/kubernetes\_cluster.html#default\_node\_pool | `map(any)` | <pre>{<br>  "enable_auto_scaling": true,<br>  "name": "nodepool",<br>  "os_disk_size_gb": 50,<br>  "type": "VirtualMachineScaleSets",<br>  "vm_size": "standard_f2"<br>}</pre> | no |
 | default\_node\_pool\_availability\_zones | The default\_node\_pools AZs | `list(string)` | `null` | no |
 | default\_node\_pool\_node\_taints | The default\_node\_pools node taints | `list(string)` | `null` | no |
+| enable\_http\_application\_routing | Is HTTP Application Routing Enabled? Changing this forces a new resource to be created. | `bool` | `false` | no |
 | kubernetes\_version | Version of Kubernetes to install | `string` | `"1.14.5"` | no |
 | location | The location for the AKS deployment | `string` | `"eastus"` | no |
 | log\_analytics\_workspace\_sku | The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018 | `string` | `"PerGB2018"` | no |

@@ -42,7 +42,7 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   addon_profile {
     http_application_routing {
-      enabled = false
+      enabled = var.enable_http_application_routing
     }
     oms_agent {
       enabled                    = true

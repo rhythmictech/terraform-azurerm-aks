@@ -6,6 +6,12 @@ variable "api_server_authorized_ip_ranges" {
   type        = list(string)
 }
 
+variable "enable_http_application_routing" {
+  default     = false
+  description = "Is HTTP Application Routing Enabled? Changing this forces a new resource to be created."
+  type        = bool
+}
+
 variable "log_analytics_workspace_id" {
   description = "The Log Analytics Workspace Id."
 }

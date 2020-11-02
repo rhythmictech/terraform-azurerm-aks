@@ -22,6 +22,7 @@ No requirements.
 | default\_node\_pool | An default\_node\_pool block | `any` | n/a | yes |
 | default\_node\_pool\_availability\_zones | The default\_node\_pools AZs | `list(string)` | `null` | no |
 | default\_node\_pool\_node\_taints | The default\_node\_pools node taints | `list(string)` | `null` | no |
+| enable\_http\_application\_routing | Is HTTP Application Routing Enabled? Changing this forces a new resource to be created. | `bool` | `false` | no |
 | kubernetes\_version | Version of Kubernetes to install | `string` | `"1.11.3"` | no |
 | location | The Azure Region in which to create the Virtual Network | `any` | n/a | yes |
 | log\_analytics\_workspace\_id | The Log Analytics Workspace Id. | `any` | n/a | yes |
