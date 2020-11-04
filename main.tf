@@ -12,6 +12,7 @@ module "kubernetes" {
   source                               = "./modules/kubernetes-cluster"
   prefix                               = var.prefix
   api_server_authorized_ip_ranges      = var.api_server_authorized_ip_ranges
+  enable_http_application_routing      = var.enable_http_application_routing
   resource_group_name                  = azurerm_resource_group.main.name
   location                             = azurerm_resource_group.main.location
   rbac_enabled                         = var.rbac_enabled

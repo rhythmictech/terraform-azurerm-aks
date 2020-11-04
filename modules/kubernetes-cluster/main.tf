@@ -41,6 +41,9 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
 
   addon_profile {
+    http_application_routing {
+      enabled = var.enable_http_application_routing
+    }
     oms_agent {
       enabled                    = true
       log_analytics_workspace_id = var.log_analytics_workspace_id
