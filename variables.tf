@@ -45,21 +45,8 @@ variable "admin_username" {
   type        = string
 }
 
-variable "log_analytics_workspace_sku" {
-  description = "The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018"
-  default     = "PerGB2018"
-  type        = string
-}
-
-variable "log_retention_in_days" {
-  description = "The retention period for the logs in days"
-  default     = 30
-  type        = number
-}
-
 variable "kubernetes_version" {
   description = "Version of Kubernetes to install"
-  default     = "1.14.5"
   type        = string
 }
 
@@ -106,12 +93,6 @@ variable "default_node_pool_node_taints" {
   default     = null
 }
 
-# variable "aks_ignore_changes" {
-#   description = "lifecycle.aks_ignore_changes to ignore"
-#   type        = list(string)
-#   default     = [""]
-# }
-
 variable "network_profile" {
   description = "Variables defining the AKS network profile config"
   type = object({
@@ -138,4 +119,9 @@ variable "tags" {
   default     = {}
   description = "Any tags that should be present on resources"
   type        = map(string)
+}
+
+variable "log_analytics_workspace_id" {
+  default     = null
+  description = "resource ID for log analytics workspace"
 }
